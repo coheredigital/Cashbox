@@ -5,13 +5,13 @@ $.fn.cashbox = function(options) {
         {
             debug: false,
             placeholder: "<div class='cashbox--placeholder'></div>",
-            toggleClass: "hidden",
+            toggleClass: "cashbox--is-hidden",
             gallery: true,
             classes: {
-                placeholder: 'fixed pin-all bg-darker flex items-center justify-center hidden z-top p1',
-                placeholderToggleClass: 'hidden',
+                placeholder: '',
+                placeholderToggleClass: 'cashbox--is-hidden',
                 bodyOpenClass: 'cashbox--is-open',
-                image: 'mxw-full mxh-full shadow',
+                image: '',
                 closeButton: '',
                 nextButton: '',
                 prevButton: '',
