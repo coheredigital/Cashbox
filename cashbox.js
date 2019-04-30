@@ -36,22 +36,29 @@ $.fn.cashbox = function(options) {
 
     return this.each(function() {
         var $this = $(this);
-        var $img = $("<img>").addClass(settings.classes.image);
-        
-        // get data attributes
-        if ($this.data("cashbox-target")) {
-            var target = $this.data("cashbox-target");
-            console.log(target);
-        }
-
+        var $content;
 
         $this.on("click", function(event) {
+
             event.preventDefault();
-            var imageSrc = $this.attr("href");
             $body.addClass(settings.classes.bodyOpenClass);
             $placeholder.toggleClass(settings.classes.placeholderToggleClass);
-            $img.attr("src",imageSrc);
-            $placeholder.append($img);
+
+            // get data attributes
+            if ($this.data("cashbox-target")) {
+                var target = $this.data("cashbox-target");
+                var $target = $(target);
+                $content = $($target.html());
+            }
+            else {
+                var imageSrc = $this.attr("href");
+
+                $content = $("<img>")
+                    .addClass(settings.classes.image)
+                    .attr("src",imageSrc);
+
+            }
+            $content.appendTo($placeholder);
         });
     });
 };
